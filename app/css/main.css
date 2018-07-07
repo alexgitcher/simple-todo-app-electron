@@ -1,0 +1,101 @@
+html,
+body {
+  -webkit-app-region: drag;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app {
+  padding-top: 60px;
+}
+
+.app--hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease-in-out,
+  visibility .5s ease-in-out;
+}
+
+.app__title {
+  font-size: 40px;
+  line-height: 34px;
+  margin-bottom: 40px;
+}
+
+.tasks {
+  list-style: none;
+}
+
+.task__item + .task__item {
+  margin-top: 20px;
+}
+
+.task__content {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  width: 100%;
+  padding-left: 30px;
+}
+
+.task__checkbox {
+  -webkit-app-region: no-drag;
+  position: absolute;
+  top: 50%;
+  margin: -6px 0 0;
+  left: 0;
+  justify-content: flex-start;
+  z-index: 1;
+}
+
+.task__checkbox--hidden {
+  display: none;
+}
+
+.task__input {
+  -webkit-app-region: no-drag;
+  font-size: 20px;
+  line-height: 24px;
+  flex-grow: 1;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom-color: #000;
+  outline: none;
+  text-overflow: ellipsis;
+}
+
+.task--saved {
+  border-bottom-color: transparent;
+}
+
+.task--done {
+  text-decoration: line-through;
+  background-color: transparent;
+}
+
+.btn__close {
+  -webkit-app-region: no-drag;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "simple-todo-app-electron",
+  "version": "1.0.0",
+  "description": "Simple ToDo app build on Electron framework",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "files": [
+    "./app/*"
+  ],
+  "author": "Alexey Cherkasov",
+  "license": "MIT",
+  "productName": "Simple ToDo app",
+  "devDependencies": {
+    "electron": "^2.0.3"
+  }
+}
