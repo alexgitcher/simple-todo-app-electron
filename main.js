@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('path');
 
 let mainWindow;
 
@@ -8,7 +9,10 @@ const createWindow = () => {
       width: 800,
       height: 600,
       frame: false,
-      resizable: false
+      resizable: false,
+      webPreferences: {
+        preload: path.join(__dirname, './app/js/preload.js')
+      }
     }
   );
 
@@ -16,10 +20,15 @@ const createWindow = () => {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
-
 };
 
-app.on('ready', createWindow);
+app.whenReady().then(() => {
+  createWindow()
+
+  app.on('activate', function () {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+  })
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

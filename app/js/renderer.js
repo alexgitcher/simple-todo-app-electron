@@ -1,10 +1,8 @@
-const ipcRenderer = require('electron').ipcRenderer;
-
 document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.getElementById('close');
-  
+
   closeBtn.addEventListener('click', () => {
-    ipcRenderer.send('close-window');
+    window.closeApp();
   });
 
   let taskID = 0;
